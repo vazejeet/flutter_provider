@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_provider/homepage.dart';
+import 'package:flutter_provider/provider/count_provider.dart';
+import 'package:flutter_provider/screen/countexample.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -8,14 +11,15 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return ChangeNotifierProvider(
+    create: (_) =>CountProvider(),
+    
+   child: MaterialApp(
       title: 'Flutter Demo',
-      
-       
-      home: provideer(),
+      home: countExample(),
+      )
     );
   }
 }
